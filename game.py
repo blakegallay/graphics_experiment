@@ -75,11 +75,12 @@ class region():
 		def contains(self, coord):
 		
 			#transformed_x = coord.x * math.cos(angle) + coord.y * math.sin(angle)
-			transformed_y = (coord.y + ( (self.coord1.x * math.tan(self.angle)) - self.coord1.y )) * math.cos(self.angle) - (coord.x) * math.sin(self.angle)
-		
-			if(abs(transformed_y) < self.thickness):
 			
-				if(self.region1.contains(coord) and self.region2.contains(coord)):
+			if(self.region1.contains(coord) and self.region2.contains(coord)):
+			
+				transformed_y = (coord.y + ( (self.coord1.x * math.tan(self.angle)) - self.coord1.y )) * math.cos(self.angle) - (coord.x) * math.sin(self.angle)
+			
+				if(abs(transformed_y) < self.thickness):
 			
 					return True
 				
